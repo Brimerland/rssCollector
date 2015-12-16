@@ -148,7 +148,7 @@ namespace ConsoleApplication5
             OPML opml = null;
             {
                 var x = new XmlSerializer(typeof(OPML));
-                using (var stream = File.OpenRead("subscriptions.xml"))
+                using (var stream = File.OpenRead("subscription.xml"))
                 {
                     opml = (OPML)x.Deserialize(stream);
                 }
@@ -236,7 +236,7 @@ namespace ConsoleApplication5
             }
 
             rssItems.Sort(new Comparison<Entry>((a, b) => { return b.date.CompareTo(a.date); }));
-            using (var stream = File.OpenWrite("v:/inbox/rss.txt"))
+            using (var stream = File.OpenWrite("rss.txt"))
             {
                 var sw = new StreamWriter(stream);
                 foreach (var entry in rssItems)
